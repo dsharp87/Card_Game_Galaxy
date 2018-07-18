@@ -1,0 +1,20 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.card {
+    width: 150px;
+    height: 250px;
+    display: inline-block;
+    border: 1px solid black;
+    vertical-align: top;
+}
+
+.development {
+    background-color: tan;
+}
+
+.World {
+    background-color: tan;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+
+        });
+    </script>
+
+</head>
+<body>
+    <h1>player registration</h1>
+    <form action="/game_setup/register_players" method="post">
+    {% csrf_token %}
+    {% for value in player_count %}
+        <label>Player {{value}} Name:</label> <input type="text" name="p{{value}}_name" placeholder="player {{value}} name">
+        <br>
+    {% endfor %}
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

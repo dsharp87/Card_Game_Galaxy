@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'game_runner/css/game_board.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <h1>This be the game board</h1>
+        <hr>
+        {% for player in game.players %}
+            <h1>Player {{ forloop.counter }} Hand: {{ player.name}}</h1>
+            <div>
+            {% for card in player.hand %}
+                <div class = "card {{card.get_class_name}}">
+                    <p>{{card.get_class_name}}</p>
+                    <p>Color: {{ card.color }}</p>
+                    <p>Cost: {{ card.cost }}</p>
+                    <p>Points: {{ card.points }}</p>
+                    <p>Types:
+                        {% for type in card.types %}
+                            {{type}}, 
+                        {% endfor %}
+                    </p>
+                    <div class="{{card.get_class_name}}"></div>
+                </div>
+            {% endfor %}
+            <hr>
+            </div>
+        {% endfor %}
+        <hr>
+        <h1>Cards in Draw Pile</h1>
+        {% for card in game.deck.cards %}
+        <div class = "card">
+            <p>{{card.get_class_name}}</p>
+            <p>Color: {{ card.color }}</p>
+            <p>Cost: {{ card.cost }}</p>
+            <p>Points: {{ card.points }}</p>
+            <p>Types:
+                {% for type in card.types %}
+                    {{type}}, 
+                {% endfor %}
+            </p>
+            <div class="{{card.get_class_name}}"></div>
+        </div>
+        {% endfor %}
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>landing page</h1>
+    <form action="/game_setup/rules" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Rules">
+    </form>
+    <form action="/game_setup/player_registration" method="post">
+        {% csrf_token %}
+        <input type="hidden" type="text" name="single_player_flag" value="y">
+        <input type="hidden" type="number" name="player_count" value="1">
+        <input type="submit" value="Single Player Game">
+    </form>
+    <form action="/game_setup/player_registration" method="post">
+        {% csrf_token %}
+        <input type="hidden" type="number" name="player_count" value="2">
+        <input type="submit" value="Two Player Game">
+    </form>
+    <form action="/game_setup/player_registration" method="post">
+        {% csrf_token %}
+        <input type="hidden" type="text" name="three_plus_flag" value="y">
+        <input type="number" name="player_count" placeholder="3 - 6">
+        <input type="submit" value="Three to Six Player Game">
+    </form>
+</body>
+</html>
